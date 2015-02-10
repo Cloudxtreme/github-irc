@@ -15,7 +15,7 @@ If you would like to contribute to this project, here is what you got to do firs
 - Choose a secret token.
 - For development purpose, choose Send me everything.
 - Add webhook.
-- Now, depending on your OS, set your secret token in the GITHUBTOKEN variable. (Search on Google is you need help with this)
+- Now, depending on your OS, set your secret token in the GITHUBTOKEN environment variable. (Search on Google is you need help with this)
  
 ### Todo list
 
