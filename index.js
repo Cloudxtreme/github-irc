@@ -52,7 +52,7 @@ app.post('/', function (req, res) {
         }
         // Any time a deployment for a Repository has a status update from the API.
         else if (req.headers['x-github-event'] === 'deployment_status') {
-
+            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['comment']['user']['login'] + ' commented on issue #' + req.body['issue']['number'] + ': ' + smartTrim(req.body['comment']['body'], 50, ' ', '...') + ' - ' + req.body['comment']['html_url']);
         }
         // Any time a Repository is forked.
         else if (req.headers['x-github-event'] === 'fork') {
