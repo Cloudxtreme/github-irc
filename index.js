@@ -48,7 +48,7 @@ app.post('/', function (req, res) {
         }
         // Any time a Repository has a new deployment created from the API.
         else if (req.headers['x-github-event'] === 'deployment') {
-
+            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['sender']['login'] + ' updated the wiki page \'' + req.body['pages'][0]['page_name'] + '\' - ' + req.body['pages'][0]['html_url']);
         }
         // Any time a deployment for a Repository has a status update from the API.
         else if (req.headers['x-github-event'] === 'deployment_status') {
