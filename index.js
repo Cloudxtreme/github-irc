@@ -88,7 +88,7 @@ app.post('/', function (req, res) {
         }
         // Any time a Commit is commented on while inside a Pull Request review (the Files Changed tab).
         else if (req.headers['x-github-event'] === 'pull_request_review_comment') {
-
+            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['comment']['user']['login'] + ' commented on pull request #' + req.body['pull_request']['number'] + ': ' + smartTrim(req.body['comment']['body'], 50, ' ', '...') + ' (' + req.body['pull_request']['base']['sha'].substring(0, 7) + ') - ' + req.body['comment']['html_url']);
         }
         // Any time a Pull Request is assigned, unassigned, labeled, unlabeled, opened, closed,
         // reopened, or synchronized (updated due to a new push in the branch that the pull request is tracking).
