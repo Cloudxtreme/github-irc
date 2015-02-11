@@ -48,27 +48,27 @@ app.post('/', function (req, res) {
         }
         // Any time a Repository has a new deployment created from the API.
         else if (req.headers['x-github-event'] === 'deployment') {
-            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['sender']['login'] + ' updated the wiki page \'' + req.body['pages'][0]['page_name'] + '\' - ' + req.body['pages'][0]['html_url']);
+
         }
         // Any time a deployment for a Repository has a status update from the API.
         else if (req.headers['x-github-event'] === 'deployment_status') {
-            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['comment']['user']['login'] + ' commented on issue #' + req.body['issue']['number'] + ': ' + smartTrim(req.body['comment']['body'], 50, ' ', '...') + ' - ' + req.body['comment']['html_url']);
+
         }
         // Any time a Repository is forked.
         else if (req.headers['x-github-event'] === 'fork') {
-            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['issue']['user']['login'] + ' ' + req.body['action'] + ' issue #' + req.body['issue']['number'] + ': ' + req.body['issue']['title'] + ' - ' + req.body['issue']['html_url']);
+
         }
         // Any time a Wiki page is updated.
         else if (req.headers['x-github-event'] === 'gollum') {
-
+            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['sender']['login'] + ' updated the wiki page \'' + req.body['pages'][0]['page_name'] + '\' - ' + req.body['pages'][0]['html_url']);
         }
         // Any time an Issue is commented on.
         else if (req.headers['x-github-event'] === 'issue_comment') {
-
+            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['comment']['user']['login'] + ' commented on issue #' + req.body['issue']['number'] + ': ' + smartTrim(req.body['comment']['body'], 50, ' ', '...') + ' - ' + req.body['comment']['html_url']);
         }
         // Any time an Issue is assigned, unassigned, labeled, unlabeled, opened, closed, or reopened.
         else if (req.headers['x-github-event'] === 'issues') {
-
+            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['issue']['user']['login'] + ' ' + req.body['action'] + ' issue #' + req.body['issue']['number'] + ': ' + req.body['issue']['title'] + ' - ' + req.body['issue']['html_url']);
         }
         // Any time a User is added as a collaborator to a non-Organization Repository.
         else if (req.headers['x-github-event'] === 'member') {
