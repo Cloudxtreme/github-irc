@@ -56,7 +56,7 @@ app.post('/', function (req, res) {
         }
         // Any time a Repository is forked.
         else if (req.headers['x-github-event'] === 'fork') {
-
+            console.log('[' + req.body['repository']['full_name'] + '] ' + req.body['issue']['user']['login'] + ' ' + req.body['action'] + ' issue #' + req.body['issue']['number'] + ': ' + req.body['issue']['title'] + ' - ' + req.body['issue']['html_url']);
         }
         // Any time a Wiki page is updated.
         else if (req.headers['x-github-event'] === 'gollum') {
